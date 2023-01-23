@@ -43,16 +43,20 @@ public:
     string word;
     string predicted;
     vector<Player> players;
+    string WHITESPACE = " \n\r\t\f\v";
 
     Room (const string& name) {
         this->name = name;
         this->isStarted = false;
         this->word = getRandomWord("answers.txt");
 
+        size_t end = this->word.find_last_not_of(WHITESPACE);
+
+        this->word = this->word.substr(0, end + 1);
         this->predicted = "";
 
         //add to the variable predicted * for display by the client
-        for (size_t i = 0; i < this->word.length()-1; ++i) {
+        for (size_t i = 0; i < this->word.length(); ++i) {
             predicted += "*";
         }
     }

@@ -19,6 +19,7 @@
 
 using namespace std;
 
+
 class Server
 {
 public:
@@ -233,7 +234,10 @@ public:
                                     string end = "NO";
 
                                     cout << data.rooms[roomIdx].word << endl;
+                                    cout << data.rooms[roomIdx].word.length() << endl;
                                     cout << data.rooms[roomIdx].predicted <<endl;
+                                    cout << data.rooms[roomIdx].predicted.length() <<endl;
+
 
                                     if (data.rooms[roomIdx].word == data.rooms[roomIdx].predicted) {
                                         end = "YES";
